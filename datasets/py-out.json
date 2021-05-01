@@ -36,11 +36,11 @@
     "dimensions": []
   },
   "versionTag": {
-    "versionNumber": 0,
+    "versionNumber": 1,
     "lastModifiedBy": {
       "login": "admin"
     },
-    "lastModifiedOn": 1619847930314
+    "lastModifiedOn": 1619851117464
   },
   "creationTag": {
     "versionNumber": 0,
@@ -65,8 +65,37 @@
     }
   },
   "schema": {
-    "columns": [],
-    "userModified": true
+    "columns": [
+      {
+        "name": "customer_id",
+        "type": "string"
+      },
+      {
+        "name": "ip",
+        "type": "string"
+      },
+      {
+        "name": "ip_country",
+        "type": "string"
+      },
+      {
+        "name": "ip_geopoint",
+        "type": "string"
+      },
+      {
+        "name": "pages_visited",
+        "type": "double"
+      },
+      {
+        "name": "campain",
+        "type": "boolean"
+      },
+      {
+        "name": "prediction",
+        "type": "double"
+      }
+    ],
+    "userModified": false
   },
   "dkuProperties": [],
   "metrics": {
