@@ -1,8 +1,8 @@
 {
-  "type": "Filesystem",
+  "type": "S3",
   "managed": true,
   "description": "### Contents\n\n- The new customers navigational enriched data.",
-  "formatType": "csv",
+  "formatType": "parquet",
   "checklists": {
     "checklists": []
   },
@@ -25,34 +25,11 @@
     }
   },
   "formatParams": {
-    "style": "unix",
-    "charset": "utf8",
-    "separator": "\t",
-    "quoteChar": "\"",
-    "escapeChar": "\\",
-    "dateSerializationFormat": "ISO",
-    "arrayMapFormat": "json",
-    "hiveSeparators": [
-      "\u0002",
-      "\u0003",
-      "\u0004",
-      "\u0005",
-      "\u0006",
-      "\u0007",
-      "\b"
-    ],
-    "skipRowsBeforeHeader": 0,
-    "parseHeaderRow": false,
-    "skipRowsAfterHeader": 0,
-    "probableNumberOfRecords": 0,
-    "normalizeBooleans": false,
-    "normalizeDoubles": false,
-    "readAdditionalColumnsBehavior": "INSERT_IN_DATA_WARNING",
-    "readMissingColumnsBehavior": "DISCARD_SILENT",
-    "readDataTypeMismatchBehavior": "DISCARD_WARNING",
-    "writeDataTypeMismatchBehavior": "DISCARD_WARNING",
-    "fileReadFailureBehavior": "FAIL",
-    "compress": "gz"
+    "parquetLowerCaseIdentifiers": false,
+    "representsNullFields": false,
+    "parquetCompressionMethod": "SNAPPY",
+    "parquetFlavor": "HIVE",
+    "parquetBlockSizeMB": 128
   },
   "partitioning": {
     "ignoreNonMatchingFile": false,
@@ -60,16 +37,19 @@
     "dimensions": []
   },
   "versionTag": {
-    "versionNumber": 3,
+    "versionNumber": 4,
     "lastModifiedBy": {
       "login": "admin"
     },
-    "lastModifiedOn": 1461148473316
+    "lastModifiedOn": 1619847697501
   },
   "tags": [],
   "params": {
-    "connection": "filesystem_managed",
-    "path": "/DKU_TSHIRTS.web_new_customers_enriched",
+    "bucket": "sselle",
+    "metastoreSynchronizationEnabled": true,
+    "metastoreTableName": "web_new_customers_enriched",
+    "connection": "s3-sselle",
+    "path": "/dataiku/${projectKey}/web_new_customers_enriched",
     "notReadyIfEmpty": false,
     "filesSelectionRules": {
       "mode": "ALL",
@@ -105,7 +85,7 @@
         "type": "boolean"
       }
     ],
-    "userModified": false
+    "userModified": true
   },
   "dkuProperties": [],
   "metrics": {
