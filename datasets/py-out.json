@@ -36,11 +36,11 @@
     "dimensions": []
   },
   "versionTag": {
-    "versionNumber": 1,
+    "versionNumber": 2,
     "lastModifiedBy": {
       "login": "admin"
     },
-    "lastModifiedOn": 1619851117464
+    "lastModifiedOn": 1619853136693
   },
   "creationTag": {
     "versionNumber": 0,
@@ -51,10 +51,10 @@
   },
   "tags": [],
   "params": {
-    "bucket": "sselle",
+    "bucket": "dku-sselle",
     "metastoreSynchronizationEnabled": true,
     "metastoreTableName": "py-out",
-    "connection": "s3-sselle",
+    "connection": "s3-dku-sselle",
     "path": "/dataiku/${projectKey}/py-out",
     "notReadyIfEmpty": false,
     "filesSelectionRules": {
@@ -95,7 +95,7 @@
         "type": "double"
       }
     ],
-    "userModified": false
+    "userModified": true
   },
   "dkuProperties": [],
   "metrics": {

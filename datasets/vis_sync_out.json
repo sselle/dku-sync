@@ -36,11 +36,11 @@
     "dimensions": []
   },
   "versionTag": {
-    "versionNumber": 1,
+    "versionNumber": 2,
     "lastModifiedBy": {
       "login": "admin"
     },
-    "lastModifiedOn": 1619852404197
+    "lastModifiedOn": 1619853136696
   },
   "creationTag": {
     "versionNumber": 0,
@@ -51,10 +51,10 @@
   },
   "tags": [],
   "params": {
-    "bucket": "sselle",
+    "bucket": "dku-sselle",
     "metastoreSynchronizationEnabled": true,
     "metastoreTableName": "vis_sync_out",
-    "connection": "s3-sselle",
+    "connection": "s3-dku-sselle",
     "path": "/dataiku/${projectKey}/vis_sync_out",
     "notReadyIfEmpty": false,
     "filesSelectionRules": {

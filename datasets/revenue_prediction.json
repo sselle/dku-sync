@@ -36,18 +36,18 @@
     "dimensions": []
   },
   "versionTag": {
-    "versionNumber": 4,
+    "versionNumber": 5,
     "lastModifiedBy": {
       "login": "admin"
     },
-    "lastModifiedOn": 1619847697490
+    "lastModifiedOn": 1619853136690
   },
   "tags": [],
   "params": {
-    "bucket": "sselle",
+    "bucket": "dku-sselle",
     "metastoreSynchronizationEnabled": true,
     "metastoreTableName": "revenue_prediction",
-    "connection": "s3-sselle",
+    "connection": "s3-dku-sselle",
     "path": "/dataiku/${projectKey}/revenue_prediction",
     "notReadyIfEmpty": false,
     "filesSelectionRules": {

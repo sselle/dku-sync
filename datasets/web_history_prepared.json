@@ -37,18 +37,18 @@
     "dimensions": []
   },
   "versionTag": {
-    "versionNumber": 5,
+    "versionNumber": 6,
     "lastModifiedBy": {
       "login": "admin"
     },
-    "lastModifiedOn": 1619847697487
+    "lastModifiedOn": 1619853136708
   },
   "tags": [],
   "params": {
-    "bucket": "sselle",
+    "bucket": "dku-sselle",
     "metastoreSynchronizationEnabled": true,
     "metastoreTableName": "web_history_prepared",
-    "connection": "s3-sselle",
+    "connection": "s3-dku-sselle",
     "path": "/dataiku/${projectKey}/web_history_prepared",
     "notReadyIfEmpty": false,
     "filesSelectionRules": {
