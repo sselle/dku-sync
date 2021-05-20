@@ -1,45 +1,91 @@
 {
+  "type": "shaker",
+  "neverRecomputeExistingPartitions": false,
+  "optionalDependencies": false,
+  "params": {
+    "engineType": "DSS",
+    "engineParams": {
+      "spark": {
+        "readParams": {
+          "mode": "AUTO",
+          "autoModeRepartitionInto": 10,
+          "map": {}
+        },
+        "useGlobalMetastore": false,
+        "useNativeProcessors": true,
+        "sparkConfig": {
+          "inheritConf": "default",
+          "conf": []
+        },
+        "executionEngine": "SPARK_SUBMIT",
+        "pipelineAllowStart": true,
+        "pipelineAllowMerge": true,
+        "skipPrerunValidate": false
+      },
+      "hive": {
+        "inheritConf": "default",
+        "hiveconf": [],
+        "executionEngine": "HIVECLI_LOCAL",
+        "addDkuUdf": false,
+        "skipPrerunValidate": false
+      },
+      "impala": {
+        "forceStreamMode": true
+      },
+      "hadoopConfigKeys": [],
+      "sqlPipelineParams": {
+        "pipelineAllowStart": true,
+        "pipelineAllowMerge": true
+      },
+      "maxThreads": 8
+    }
+  },
+  "customMeta": {
+    "kv": {}
+  },
+  "redispatchPartitioning": false,
+  "maxRunningActivities": 0,
+  "variables": {},
+  "dkuProperties": [],
   "inputs": {
     "main": {
       "items": [
         {
-          "deps": [], 
-          "ref": "web_history"
+          "ref": "web_history",
+          "deps": []
         }
       ]
-    }, 
+    },
     "scriptDeps": {
       "items": [
         {
-          "deps": [], 
-          "ref": "crm_history"
+          "ref": "crm_history",
+          "deps": []
         }
       ]
     }
-  }, 
-  "neverRecomputeExistingPartitions": false, 
-  "optionalDependencies": false, 
+  },
   "outputs": {
     "main": {
       "items": [
         {
-          "ref": "web_history_prepared"
+          "ref": "web_history_prepared",
+          "appendMode": false
         }
       ]
     }
-  }, 
-  "params": {
-    "engineType": "DSS"
-  }, 
-  "partitionDeps": [], 
-  "tags": [], 
-  "type": "shaker", 
+  },
+  "labels": [],
   "versionTag": {
+    "versionNumber": 3,
     "lastModifiedBy": {
-      "displayName": "Administrator", 
       "login": "admin"
-    }, 
-    "lastModifiedOn": 1430749428783, 
-    "versionNumber": 3
+    },
+    "lastModifiedOn": 1430749428783
+  },
+  "tags": [],
+  "customFields": {},
+  "checklists": {
+    "checklists": []
   }
 }

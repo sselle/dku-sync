@@ -1,43 +1,84 @@
 {
-  "checklists": {
-    "checklists": []
-  }, 
-  "description": "### Process explained\n\n- __extracts the country__ of each customer knowing his IP address.", 
+  "type": "shaker",
+  "neverRecomputeExistingPartitions": false,
+  "optionalDependencies": false,
+  "params": {
+    "engineType": "DSS",
+    "engineParams": {
+      "spark": {
+        "readParams": {
+          "mode": "AUTO",
+          "autoModeRepartitionInto": 10,
+          "map": {}
+        },
+        "useGlobalMetastore": false,
+        "useNativeProcessors": true,
+        "sparkConfig": {
+          "inheritConf": "default",
+          "conf": []
+        },
+        "executionEngine": "SPARK_SUBMIT",
+        "pipelineAllowStart": true,
+        "pipelineAllowMerge": true,
+        "skipPrerunValidate": false
+      },
+      "hive": {
+        "inheritConf": "default",
+        "hiveconf": [],
+        "executionEngine": "HIVECLI_LOCAL",
+        "addDkuUdf": false,
+        "skipPrerunValidate": false
+      },
+      "impala": {
+        "forceStreamMode": true
+      },
+      "hadoopConfigKeys": [],
+      "sqlPipelineParams": {
+        "pipelineAllowStart": true,
+        "pipelineAllowMerge": true
+      },
+      "maxThreads": 8
+    }
+  },
+  "customMeta": {
+    "kv": {}
+  },
+  "redispatchPartitioning": false,
+  "maxRunningActivities": 0,
+  "variables": {},
+  "dkuProperties": [],
   "inputs": {
     "main": {
       "items": [
         {
-          "deps": [], 
-          "ref": "web_new_customers"
+          "ref": "web_new_customers",
+          "deps": []
         }
       ]
     }
-  }, 
-  "neverRecomputeExistingPartitions": false, 
-  "optionalDependencies": false, 
+  },
   "outputs": {
     "main": {
       "items": [
         {
-          "appendMode": false, 
-          "ref": "web_new_customers_enriched"
+          "ref": "web_new_customers_enriched",
+          "appendMode": false
         }
       ]
     }
-  }, 
-  "params": {
-    "engineType": "DSS", 
-    "hadoopConfigKeys": []
-  }, 
-  "redispatchPartitioning": false, 
-  "tags": [], 
-  "type": "shaker", 
+  },
+  "labels": [],
   "versionTag": {
+    "versionNumber": 10,
     "lastModifiedBy": {
-      "displayName": "Administrator", 
       "login": "admin"
-    }, 
-    "lastModifiedOn": 1461148473697, 
-    "versionNumber": 10
+    },
+    "lastModifiedOn": 1461148473697
+  },
+  "description": "### Process explained\n\n- __extracts the country__ of each customer knowing his IP address.",
+  "tags": [],
+  "customFields": {},
+  "checklists": {
+    "checklists": []
   }
 }

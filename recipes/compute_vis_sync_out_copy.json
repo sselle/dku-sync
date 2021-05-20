@@ -1,18 +1,24 @@
 {
-  "type": "shaker",
+  "type": "sync",
   "neverRecomputeExistingPartitions": false,
   "optionalDependencies": false,
   "params": {
-    "engineType": "DSS",
+    "schemaMode": "STRICT_SYNC",
+    "forcePipelineableForTests": false,
     "engineParams": {
-      "spark": {
+      "maxThreads": 4,
+      "tdchParams": {
+        "splitMode": "DEFAULT",
+        "numberOfExecutors": 2
+      },
+      "sparkSQL": {
+        "overwriteOutputSchema": false,
+        "useGlobalMetastore": false,
         "readParams": {
           "mode": "AUTO",
           "autoModeRepartitionInto": 10,
           "map": {}
         },
-        "useGlobalMetastore": false,
-        "useNativeProcessors": true,
         "sparkConfig": {
           "inheritConf": "default",
           "conf": []
@@ -22,22 +28,21 @@
         "pipelineAllowMerge": true,
         "skipPrerunValidate": false
       },
-      "hive": {
-        "inheritConf": "default",
-        "hiveconf": [],
-        "executionEngine": "HIVECLI_LOCAL",
-        "addDkuUdf": false,
-        "skipPrerunValidate": false
-      },
       "impala": {
         "forceStreamMode": true
       },
-      "hadoopConfigKeys": [],
+      "hive": {
+        "inheritConf": "default",
+        "hiveconf": [],
+        "executionEngine": "HIVESERVER2",
+        "addDkuUdf": false,
+        "skipPrerunValidate": false
+      },
       "sqlPipelineParams": {
         "pipelineAllowStart": true,
         "pipelineAllowMerge": true
       },
-      "maxThreads": 8
+      "lowerCaseSchemaIfEngineRequiresIt": false
     }
   },
   "customMeta": {
@@ -51,15 +56,7 @@
     "main": {
       "items": [
         {
-          "ref": "crm_history",
-          "deps": []
-        }
-      ]
-    },
-    "scriptDeps": {
-      "items": [
-        {
-          "ref": "web_history",
+          "ref": "vis_sync_out",
           "deps": []
         }
       ]
@@ -69,7 +66,7 @@
     "main": {
       "items": [
         {
-          "ref": "crm_and_web_history_enriched",
+          "ref": "vis_sync_out_copy",
           "appendMode": false
         }
       ]
@@ -77,13 +74,19 @@
   },
   "labels": [],
   "versionTag": {
-    "versionNumber": 2,
+    "versionNumber": 1,
     "lastModifiedBy": {
       "login": "admin"
     },
-    "lastModifiedOn": 1461924340253
+    "lastModifiedOn": 1621498767425
   },
-  "description": "### Process explained\n\nThis recipe\n\n- __computes the age__ of each customer with their birthdate\n- __clears the age cell__ for each customers when the age data is a none sense (people can\u0027t be 114 years old and buying TShirt on internet)\n- __merges historical customers navigational data__ with CRM data\n- __extracts the country__ of each customer knowing his IP address",
+  "creationTag": {
+    "versionNumber": 0,
+    "lastModifiedBy": {
+      "login": "admin"
+    },
+    "lastModifiedOn": 1621498765488
+  },
   "tags": [],
   "customFields": {},
   "checklists": {

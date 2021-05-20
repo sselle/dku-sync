@@ -1,7 +1,7 @@
 {
   "type": "S3",
   "managed": true,
-  "formatType": "parquet",
+  "formatType": "csv",
   "checklists": {
     "checklists": []
   },
@@ -24,11 +24,34 @@
     }
   },
   "formatParams": {
-    "parquetLowerCaseIdentifiers": false,
-    "representsNullFields": false,
-    "parquetCompressionMethod": "SNAPPY",
-    "parquetFlavor": "HIVE",
-    "parquetBlockSizeMB": 128
+    "style": "excel",
+    "charset": "utf8",
+    "separator": "\t",
+    "quoteChar": "\"",
+    "escapeChar": "\\",
+    "dateSerializationFormat": "ISO",
+    "arrayMapFormat": "json",
+    "hiveSeparators": [
+      "\u0002",
+      "\u0003",
+      "\u0004",
+      "\u0005",
+      "\u0006",
+      "\u0007",
+      "\b"
+    ],
+    "skipRowsBeforeHeader": 0,
+    "parseHeaderRow": false,
+    "skipRowsAfterHeader": 0,
+    "probableNumberOfRecords": 0,
+    "normalizeBooleans": false,
+    "normalizeDoubles": true,
+    "readAdditionalColumnsBehavior": "INSERT_IN_DATA_WARNING",
+    "readMissingColumnsBehavior": "DISCARD_SILENT",
+    "readDataTypeMismatchBehavior": "DISCARD_WARNING",
+    "writeDataTypeMismatchBehavior": "DISCARD_WARNING",
+    "fileReadFailureBehavior": "FAIL",
+    "compress": "gz"
   },
   "partitioning": {
     "ignoreNonMatchingFile": false,
@@ -40,22 +63,22 @@
     "lastModifiedBy": {
       "login": "admin"
     },
-    "lastModifiedOn": 1619855777231
+    "lastModifiedOn": 1621498765482
   },
   "creationTag": {
     "versionNumber": 0,
     "lastModifiedBy": {
       "login": "admin"
     },
-    "lastModifiedOn": 1619855654959
+    "lastModifiedOn": 1621498765478
   },
   "tags": [],
   "params": {
     "bucket": "dku-sselle",
     "metastoreSynchronizationEnabled": true,
-    "metastoreTableName": "pyspark_out",
+    "metastoreTableName": "vis_sync_out_copy",
     "connection": "s3-dku-sselle",
-    "path": "/dataiku/${projectKey}/pyspark_out",
+    "path": "/dataiku/${projectKey}/vis_sync_out_copy",
     "notReadyIfEmpty": false,
     "filesSelectionRules": {
       "mode": "ALL",
@@ -95,7 +118,7 @@
         "type": "float"
       }
     ],
-    "userModified": false
+    "userModified": true
   },
   "dkuProperties": [],
   "metrics": {

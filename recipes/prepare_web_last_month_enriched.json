@@ -1,51 +1,92 @@
 {
-  "checklists": {
-    "checklists": []
-  }, 
-  "description": "### Process explained\n\n- __extracts the country__ of each customer knowing his IP address.\n- __adding the monthly revenue__ each customer has generated (This data is extracted from the last month CRM data).", 
+  "type": "shaker",
+  "neverRecomputeExistingPartitions": false,
+  "optionalDependencies": false,
+  "params": {
+    "engineType": "DSS",
+    "engineParams": {
+      "spark": {
+        "readParams": {
+          "mode": "AUTO",
+          "autoModeRepartitionInto": 10,
+          "map": {}
+        },
+        "useGlobalMetastore": false,
+        "useNativeProcessors": true,
+        "sparkConfig": {
+          "inheritConf": "default",
+          "conf": []
+        },
+        "executionEngine": "SPARK_SUBMIT",
+        "pipelineAllowStart": true,
+        "pipelineAllowMerge": true,
+        "skipPrerunValidate": false
+      },
+      "hive": {
+        "inheritConf": "default",
+        "hiveconf": [],
+        "executionEngine": "HIVECLI_LOCAL",
+        "addDkuUdf": false,
+        "skipPrerunValidate": false
+      },
+      "impala": {
+        "forceStreamMode": true
+      },
+      "hadoopConfigKeys": [],
+      "sqlPipelineParams": {
+        "pipelineAllowStart": true,
+        "pipelineAllowMerge": true
+      },
+      "maxThreads": 8
+    }
+  },
+  "customMeta": {
+    "kv": {}
+  },
+  "redispatchPartitioning": false,
+  "maxRunningActivities": 0,
+  "variables": {},
+  "dkuProperties": [],
   "inputs": {
     "main": {
       "items": [
         {
-          "deps": [], 
-          "ref": "web_last_month"
+          "ref": "web_last_month",
+          "deps": []
         }
       ]
-    }, 
+    },
     "scriptDeps": {
       "items": [
         {
-          "deps": [], 
-          "ref": "crm_last_month"
+          "ref": "crm_last_month",
+          "deps": []
         }
       ]
     }
-  }, 
-  "neverRecomputeExistingPartitions": false, 
-  "optionalDependencies": false, 
+  },
   "outputs": {
     "main": {
       "items": [
         {
-          "appendMode": false, 
-          "ref": "web_last_month_enriched"
+          "ref": "web_last_month_enriched",
+          "appendMode": false
         }
       ]
     }
-  }, 
-  "params": {
-    "engineType": "DSS", 
-    "hadoopConfigKeys": []
-  }, 
-  "redispatchPartitioning": false, 
-  "tags": [], 
-  "type": "shaker", 
+  },
+  "labels": [],
   "versionTag": {
+    "versionNumber": 4,
     "lastModifiedBy": {
-      "displayName": "Administrator", 
       "login": "admin"
-    }, 
-    "lastModifiedOn": 1461148473580, 
-    "versionNumber": 4
+    },
+    "lastModifiedOn": 1461148473580
+  },
+  "description": "### Process explained\n\n- __extracts the country__ of each customer knowing his IP address.\n- __adding the monthly revenue__ each customer has generated (This data is extracted from the last month CRM data).",
+  "tags": [],
+  "customFields": {},
+  "checklists": {
+    "checklists": []
   }
 }

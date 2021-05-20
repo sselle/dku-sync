@@ -42,6 +42,9 @@
     "sample_project": {
       "color": "#d66b9b"
     },
+    "duplicated": {
+      "color": "#3A85AD"
+    },
     "Source data": {
       "color": "#a088bd"
     },
