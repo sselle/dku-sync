@@ -7,7 +7,7 @@
       "envMode": "INHERIT"
     },
     "sparkConfig": {
-      "inheritConf": "default",
+      "inheritConf": "sample-local-config",
       "conf": []
     },
     "executionEngine": "SPARK_SUBMIT",
@@ -44,11 +44,11 @@
   },
   "labels": [],
   "versionTag": {
-    "versionNumber": 2,
+    "versionNumber": 3,
     "lastModifiedBy": {
       "login": "admin"
     },
-    "lastModifiedOn": 1619855750205
+    "lastModifiedOn": 1621498487179
   },
   "creationTag": {
     "versionNumber": 0,
