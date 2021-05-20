@@ -1,51 +1,92 @@
 {
-  "checklists": {
-    "checklists": []
-  }, 
-  "description": "### Process explained\n\nThis recipe\n\n- __computes the age__ of each customer with their birthdate\n- __clears the age cell__ for each customers when the age data is a none sense (people can't be 114 years old and buying TShirt on internet)\n- __merges historical customers navigational data__ with CRM data\n- __extracts the country__ of each customer knowing his IP address", 
+  "type": "shaker",
+  "neverRecomputeExistingPartitions": false,
+  "optionalDependencies": false,
+  "params": {
+    "engineType": "DSS",
+    "engineParams": {
+      "spark": {
+        "readParams": {
+          "mode": "AUTO",
+          "autoModeRepartitionInto": 10,
+          "map": {}
+        },
+        "useGlobalMetastore": false,
+        "useNativeProcessors": true,
+        "sparkConfig": {
+          "inheritConf": "default",
+          "conf": []
+        },
+        "executionEngine": "SPARK_SUBMIT",
+        "pipelineAllowStart": true,
+        "pipelineAllowMerge": true,
+        "skipPrerunValidate": false
+      },
+      "hive": {
+        "inheritConf": "default",
+        "hiveconf": [],
+        "executionEngine": "HIVECLI_LOCAL",
+        "addDkuUdf": false,
+        "skipPrerunValidate": false
+      },
+      "impala": {
+        "forceStreamMode": true
+      },
+      "hadoopConfigKeys": [],
+      "sqlPipelineParams": {
+        "pipelineAllowStart": true,
+        "pipelineAllowMerge": true
+      },
+      "maxThreads": 8
+    }
+  },
+  "customMeta": {
+    "kv": {}
+  },
+  "redispatchPartitioning": false,
+  "maxRunningActivities": 0,
+  "variables": {},
+  "dkuProperties": [],
   "inputs": {
     "main": {
       "items": [
         {
-          "deps": [], 
-          "ref": "crm_history"
+          "ref": "crm_history",
+          "deps": []
         }
       ]
-    }, 
+    },
     "scriptDeps": {
       "items": [
         {
-          "deps": [], 
-          "ref": "web_history"
+          "ref": "web_history",
+          "deps": []
         }
       ]
     }
-  }, 
-  "neverRecomputeExistingPartitions": false, 
-  "optionalDependencies": false, 
+  },
   "outputs": {
     "main": {
       "items": [
         {
-          "appendMode": false, 
-          "ref": "crm_and_web_history_enriched"
+          "ref": "crm_and_web_history_enriched",
+          "appendMode": false
         }
       ]
     }
-  }, 
-  "params": {
-    "engineType": "DSS", 
-    "hadoopConfigKeys": []
-  }, 
-  "redispatchPartitioning": false, 
-  "tags": [], 
-  "type": "shaker", 
+  },
+  "labels": [],
   "versionTag": {
+    "versionNumber": 2,
     "lastModifiedBy": {
-      "displayName": "Administrator", 
       "login": "admin"
-    }, 
-    "lastModifiedOn": 1461924340253, 
-    "versionNumber": 2
+    },
+    "lastModifiedOn": 1461924340253
+  },
+  "description": "### Process explained\n\nThis recipe\n\n- __computes the age__ of each customer with their birthdate\n- __clears the age cell__ for each customers when the age data is a none sense (people can\u0027t be 114 years old and buying TShirt on internet)\n- __merges historical customers navigational data__ with CRM data\n- __extracts the country__ of each customer knowing his IP address",
+  "tags": [],
+  "customFields": {},
+  "checklists": {
+    "checklists": []
   }
 }
